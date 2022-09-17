@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:jera_app/components/component_viajante_black_container_home_page.dart';
 import '../constants.dart';
+import '../widgets/custom_widget_positioned_image.dart';
 import '../widgets/custom_widget_positioned_text.dart';
 
 class RemetenteComponentBlackContainerHomePage extends StatelessWidget {
