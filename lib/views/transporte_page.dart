@@ -127,7 +127,16 @@ class _TransportePageState extends State<TransportePage> {
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: ElevatedButton(
               onPressed: () {
-                Navigator.of(context).pushReplacementNamed('/trajetoPage');
+                if (listCheck.any((element) => element == true)) {
+                  Navigator.of(context).pushReplacementNamed('/trajetoPage');
+                } else {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text('Selecione um meio de transporte'),
+                      duration: Duration(seconds: 2),
+                    ),
+                  );
+                }
               },
               style: TextButton.styleFrom(backgroundColor: Colors.green),
               child: Text(

@@ -1,7 +1,7 @@
 String titilliumWebRegular = 'assets/fonts/TitilliumWeb-Regular.ttf';
 String titilliumWebSemiBold = 'assets/fonts/TitilliumWeb-SemiBold.ttf';
 String titilliumWebBold = 'assets/fonts/TitilliumWeb-Bold.ttf';
-String veiculosPath = 'assets/viajante_page/';
+String veiculosPath = 'assets/transporte_page/';
 
 List<String> listImage = [
   '${veiculosPath}ic_car.png',
