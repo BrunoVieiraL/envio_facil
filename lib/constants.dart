@@ -3,7 +3,7 @@ String titilliumWebSemiBold = 'assets/fonts/TitilliumWeb-SemiBold.ttf';
 String titilliumWebBold = 'assets/fonts/TitilliumWeb-Bold.ttf';
 String veiculosPath = 'assets/transporte_page/';
 
-List<String> listImage = [
+List<String> listImageTransportePage = [
   '${veiculosPath}ic_car.png',
   '${veiculosPath}ic_aviao.png',
   '${veiculosPath}ic_caminhao.png',
@@ -14,7 +14,7 @@ List<String> listImage = [
   '${veiculosPath}ic_bus.png',
   '${veiculosPath}ic_barco.png',
 ];
-List<String> listVeiculos = [
+List<String> listVeiculosTransportePage = [
   'Carro',
   'Avião',
   'Caminhão',
@@ -25,7 +25,7 @@ List<String> listVeiculos = [
   'Ônibus',
   'Embarcação'
 ];
-List<bool> listCheck = [
+List<bool> listCheckTransportePage = [
   false,
   false,
   false,

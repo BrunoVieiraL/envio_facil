@@ -24,7 +24,7 @@ class _TrajetoPageState extends State<TrajetoPage> {
 
   @override
   void dispose() {
-    googleMapController!.dispose();
+    googleMapController?.dispose();
     super.dispose();
   }
 
@@ -33,7 +33,15 @@ class _TrajetoPageState extends State<TrajetoPage> {
     return DefaultTabController(
       length: 2,
       child: Scaffold(
+        backgroundColor: const Color(0xFFFAFAFA),
+        resizeToAvoidBottomInset: true,
         appBar: AppBar(
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back),
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+          ),
           backgroundColor: const Color(0xFF353740),
           bottom: const TabBar(
             tabs: [
@@ -48,6 +56,7 @@ class _TrajetoPageState extends State<TrajetoPage> {
             Container(
               color: const Color(0xFFFAFAFA),
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   Padding(
                     padding: const EdgeInsets.only(
@@ -80,11 +89,98 @@ class _TrajetoPageState extends State<TrajetoPage> {
                           right: 16),
                     ],
                   ),
+                  const SizedBox(
+                    height: 31,
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.only(left: 17, right: 16, bottom: 30),
+                    child: TextField(
+                      decoration: InputDecoration(
+                          prefixIcon:
+                              Icon(Icons.search, color: Color(0xFF353740)),
+                          labelText: 'Cidade de Origem',
+                          floatingLabelStyle:
+                              TextStyle(color: Color(0xFF353740)),
+                          floatingLabelBehavior: FloatingLabelBehavior.always,
+                          border: OutlineInputBorder()),
+                    ),
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.only(left: 17, right: 16),
+                    child: TextField(
+                      decoration: InputDecoration(
+                        prefixIcon:
+                            Icon(Icons.search, color: Color(0xFF353740)),
+                        labelText: 'Cidade de Destino',
+                        floatingLabelStyle: TextStyle(color: Color(0xFF353740)),
+                        floatingLabelBehavior: FloatingLabelBehavior.always,
+                        border: OutlineInputBorder(),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 28),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 60.25, right: 60.25),
+                    child: TextButton.icon(
+                      onPressed: () {
+                        Navigator.of(context)
+                            .pushNamed('/pontoIntermediarioPage');
+                      },
+                      icon: const Icon(
+                        Icons.add_circle_outline,
+                        color: Color(0xFF353740),
+                      ),
+                      label: Text(
+                        'Adicionar ponto intermediário',
+                        style: TextStyle(
+                            color: const Color(0xFF353740),
+                            fontFamily: titilliumWebBold,
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 94, right: 62),
+                    child: Text(
+                      'E aumente sua chance de match',
+                      style: TextStyle(
+                          fontSize: 14,
+                          fontFamily: titilliumWebRegular,
+                          color: const Color(0x22222252),
+                          fontWeight: FontWeight.w400),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(
+                      top: 33,
+                      left: 16,
+                      right: 16,
+                      bottom: 16,
+                    ),
+                    child: SizedBox(
+                      width: 328,
+                      height: 48,
+                      child: ElevatedButton(
+                        onPressed: () {},
+                        style:
+                            TextButton.styleFrom(backgroundColor: Colors.green),
+                        child: Text(
+                          'Avançar',
+                          style: TextStyle(
+                            fontFamily: titilliumWebBold,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
             Container(
-              color: Colors.blue,
+              color: Colors.white,
               child: GoogleMap(
                 myLocationEnabled: true,
                 mapType: MapType.normal,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jera_app/constants.dart';
+import 'package:jera_app/widgets/custom_widget_list_view.dart';
 import 'package:jera_app/widgets/custom_widget_positioned_text.dart';
 
 class TransportePage extends StatefulWidget {
@@ -39,6 +40,9 @@ class _TransportePageState extends State<TransportePage> {
                   child: IconButton(
                     onPressed: () {
                       Navigator.of(context).pushReplacementNamed('/homePage');
+                      for (var i = 0; i < listCheckTransportePage.length; i++) {
+                        listCheckTransportePage[i] = false;
+                      }
                     },
                     icon: const Icon(
                       Icons.close,
@@ -89,62 +93,43 @@ class _TransportePageState extends State<TransportePage> {
               ),
             ),
           ),
-          Expanded(
-            child: ListView.separated(
-              shrinkWrap: true,
-              separatorBuilder: (context, index) => const Divider(),
-              itemCount: listImage.length,
-              itemBuilder: (context, index) => RadioListTile(
-                groupValue: true,
-                value: listCheck[index],
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10)),
-                activeColor: Colors.green,
-                onChanged: (value) {
-                  for (var i = 0; i < listCheck.length; i++) {
-                    listCheck[i] = false;
-                  }
-                  listCheck[index] = !value!;
-                  setState(() {});
-                },
-                title: Text(
-                  listVeiculos[index],
-                  style: TextStyle(
-                      fontFamily: titilliumWebBold,
-                      fontSize: 12,
-                      fontWeight: FontWeight.bold),
-                ),
-                controlAffinity: ListTileControlAffinity.trailing,
-                secondary: Image(
-                  image: AssetImage(
-                    listImage[index],
-                  ),
-                ),
-              ),
-            ),
+          CustomWidgetListView(
+            itemCount: listVeiculosTransportePage.length,
+            value: listCheckTransportePage,
+            title: listVeiculosTransportePage,
+            imagePath: listImageTransportePage,
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: ElevatedButton(
-              onPressed: () {
-                if (listCheck.any((element) => element == true)) {
-                  Navigator.of(context).pushReplacementNamed('/trajetoPage');
-                } else {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(
-                      content: Text('Selecione um meio de transporte'),
-                      duration: Duration(seconds: 2),
-                    ),
-                  );
-                }
-              },
-              style: TextButton.styleFrom(backgroundColor: Colors.green),
-              child: Text(
-                'Avançar',
-                style: TextStyle(
-                  fontFamily: titilliumWebBold,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 16,
+            padding: const EdgeInsets.only(
+              left: 16,
+              right: 16,
+              bottom: 16,
+            ),
+            child: SizedBox(
+              height: 48,
+              width: 328,
+              child: ElevatedButton(
+                onPressed: () {
+                  if (listCheckTransportePage
+                      .any((element) => element == true)) {
+                    Navigator.of(context).pushNamed('/trajetoPage');
+                  } else {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        content: Text('Selecione um meio de transporte'),
+                        duration: Duration(seconds: 2),
+                      ),
+                    );
+                  }
+                },
+                style: TextButton.styleFrom(backgroundColor: Colors.green),
+                child: Text(
+                  'Avançar',
+                  style: TextStyle(
+                    fontFamily: titilliumWebBold,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16,
+                  ),
                 ),
               ),
             ),
