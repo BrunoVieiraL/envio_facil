@@ -162,7 +162,9 @@ class _TrajetoPageState extends State<TrajetoPage> {
                       width: 328,
                       height: 48,
                       child: ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.of(context).pushNamed('/tamanhoPage');
+                        },
                         style:
                             TextButton.styleFrom(backgroundColor: Colors.green),
                         child: Text(

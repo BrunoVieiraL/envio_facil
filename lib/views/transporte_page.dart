@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jera_app/constants.dart';
+import 'package:jera_app/widgets/custom_widget_bottom_green_button.dart';
 import 'package:jera_app/widgets/custom_widget_list_view.dart';
 import 'package:jera_app/widgets/custom_widget_positioned_text.dart';
 
@@ -99,40 +100,20 @@ class _TransportePageState extends State<TransportePage> {
             title: listVeiculosTransportePage,
             imagePath: listImageTransportePage,
           ),
-          Padding(
-            padding: const EdgeInsets.only(
-              left: 16,
-              right: 16,
-              bottom: 16,
-            ),
-            child: SizedBox(
-              height: 48,
-              width: 328,
-              child: ElevatedButton(
-                onPressed: () {
-                  if (listCheckTransportePage
-                      .any((element) => element == true)) {
-                    Navigator.of(context).pushNamed('/trajetoPage');
-                  } else {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(
-                        content: Text('Selecione um meio de transporte'),
-                        duration: Duration(seconds: 2),
-                      ),
-                    );
-                  }
-                },
-                style: TextButton.styleFrom(backgroundColor: Colors.green),
-                child: Text(
-                  'Avançar',
-                  style: TextStyle(
-                    fontFamily: titilliumWebBold,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 16,
+          CustomWidgetBottomGreenButton(
+            buttonText: 'Avançar',
+            onPressed: () {
+              if (listCheckTransportePage.any((element) => element == true)) {
+                Navigator.of(context).pushNamed('/trajetoPage');
+              } else {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
+                    content: Text('Selecione uma opção'),
+                    duration: Duration(seconds: 2),
                   ),
-                ),
-              ),
-            ),
+                );
+              }
+            },
           ),
         ],
       ),

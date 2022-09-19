@@ -70,6 +70,9 @@ flutter:
     - assets/home_page/
     - assets/transporte_page/
     - assets/trajeto_page/
+    - assets/tamanho_page/
+    - assets/balance_page/
+    - assets/paper_plane/
     - assets/fonts/
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg

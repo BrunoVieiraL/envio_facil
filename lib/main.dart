@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:jera_app/views/tamanho_page.dart';
 import 'package:jera_app/views/ponto_intermediario_page.dart';
 import 'package:jera_app/views/trajeto_page.dart';
 import 'package:jera_app/views/transporte_page.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'views/balance_page.dart';
 import 'views/home_page.dart';
+import 'views/valor_entrega_page.dart';
+import 'views/viagem_criada_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -22,6 +26,10 @@ class MyApp extends StatelessWidget {
         '/transportePage': (_) => const TransportePage(),
         '/trajetoPage': (_) => const TrajetoPage(),
         '/pontoIntermediarioPage': (_) => const PontoIntermediarioPage(),
+        '/tamanhoPage': (_) => const TamanhoPage(),
+        '/balancePage': (_) => const BalancePage(),
+        '/valorEntregaPage': (_) => const ValorEntregaPage(),
+        '/viagemCriadaPage': (_) => const ViagemCriadaPage(),
       },
       localizationsDelegates: const [
         GlobalMaterialLocalizations.delegate,
