@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:jera_app/components/component_cancel_button.dart';
+import 'package:jera_app/utils/strings/app_strings.dart';
 import 'package:jera_app/widgets/custom_widget_bottom_green_button.dart';
 
 import '../constants.dart';
+import '../utils/colors/app_colors.dart';
 import '../widgets/custom_widget_list_view.dart';
 import '../widgets/custom_widget_positioned_text.dart';
 
@@ -28,8 +30,8 @@ class _BalancePageState extends State<BalancePage> {
                   begin: Alignment.topLeft,
                   end: Alignment(3, 3),
                   colors: <Color>[
-                    Color(0xFF353740),
-                    Color(0xFF222222),
+                    AppColors.blackTwo,
+                    AppColors.blackOne,
                   ],
                   tileMode: TileMode.clamp),
             ),
@@ -59,8 +61,8 @@ class _BalancePageState extends State<BalancePage> {
                   bottom: 87,
                   left: 129,
                   right: 129,
-                  text: 'Ser um Muvver',
-                  color: Colors.white.withOpacity(0.54),
+                  text: AppStrings.beAMuvver,
+                  color: Colors.amber,
                   textAlign: TextAlign.center,
                   fontSize: 14.9,
                   fontFamily: titilliumWebRegular,
