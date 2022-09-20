@@ -69,9 +69,9 @@ flutter:
   assets:
     - assets/
     - assets/home_page/
-    - assets/transporte_page/
-    - assets/trajeto_page/
-    - assets/tamanho_page/
+    - assets/transport_page/
+    - assets/route_page/
+    - assets/boxSize_page/
     - assets/balance_page/
     - assets/paper_plane/
     - assets/fonts/

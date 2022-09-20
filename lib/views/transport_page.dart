@@ -41,8 +41,8 @@ class _TransportPageState extends State<TransportPage> {
                   child: IconButton(
                     onPressed: () {
                       Navigator.of(context).pushReplacementNamed('/homePage');
-                      for (var i = 0; i < listCheckTransportePage.length; i++) {
-                        listCheckTransportePage[i] = false;
+                      for (var i = 0; i < listCheckTransportPage.length; i++) {
+                        listCheckTransportPage[i] = false;
                       }
                     },
                     icon: const Icon(
@@ -95,15 +95,15 @@ class _TransportPageState extends State<TransportPage> {
             ),
           ),
           CustomWidgetListView(
-            itemCount: listVeiculosTransportePage.length,
-            value: listCheckTransportePage,
-            title: listVeiculosTransportePage,
-            imagePath: listImageTransportePage,
+            itemCount: listVeiculosTransportPage.length,
+            value: listCheckTransportPage,
+            title: listVeiculosTransportPage,
+            imagePath: listImageTransportPage,
           ),
           CustomWidgetBottomGreenButton(
             buttonText: 'Avançar',
             onPressed: () {
-              if (listCheckTransportePage.any((element) => element == true)) {
+              if (listCheckTransportPage.any((element) => element == true)) {
                 Navigator.of(context).pushNamed('/routePage');
               } else {
                 ScaffoldMessenger.of(context).showSnackBar(

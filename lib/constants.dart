@@ -1,11 +1,11 @@
 String titilliumWebRegular = 'assets/fonts/TitilliumWeb-Regular.ttf';
 String titilliumWebSemiBold = 'assets/fonts/TitilliumWeb-SemiBold.ttf';
 String titilliumWebBold = 'assets/fonts/TitilliumWeb-Bold.ttf';
-String veiculosImagePath = 'assets/transporte_page/';
-String containerImagePath = 'assets/tamanho_page/';
+String veiculosImagePath = 'assets/transport_page/';
+String containerImagePath = 'assets/boxSize_page/';
 String balanceImagePath = 'assets/balance_page/';
 
-List<String> listImageTransportePage = [
+List<String> listImageTransportPage = [
   '${veiculosImagePath}ic_car.png',
   '${veiculosImagePath}ic_aviao.png',
   '${veiculosImagePath}ic_caminhao.png',
@@ -16,7 +16,7 @@ List<String> listImageTransportePage = [
   '${veiculosImagePath}ic_bus.png',
   '${veiculosImagePath}ic_barco.png',
 ];
-List<String> listVeiculosTransportePage = [
+List<String> listVeiculosTransportPage = [
   'Carro',
   'Avião',
   'Caminhão',
@@ -27,7 +27,7 @@ List<String> listVeiculosTransportePage = [
   'Ônibus',
   'Embarcação'
 ];
-List<bool> listCheckTransportePage = [
+List<bool> listCheckTransportPage = [
   false,
   false,
   false,
@@ -39,7 +39,7 @@ List<bool> listCheckTransportePage = [
   false,
 ];
 
-List<String> listContainerTamanhoPage = [
+List<String> listContainerBoxSizePage = [
   'Envelope',
   'Livro',
   'Caixa de Sapato',
@@ -47,7 +47,7 @@ List<String> listContainerTamanhoPage = [
   'Mala Grande',
   'Caixa Grande'
 ];
-List<String> listImageTamanhoPage = [
+List<String> listImageBoxSizePage = [
   '${containerImagePath}ic_email.png',
   '${containerImagePath}ic_book.png',
   '${containerImagePath}ic_box.png',
@@ -56,7 +56,7 @@ List<String> listImageTamanhoPage = [
   '${containerImagePath}ic_big_box.png',
 ];
 
-List<bool> listCheckTamanhoPage = [
+List<bool> listCheckBoxSizePage = [
   false,
   false,
   false,

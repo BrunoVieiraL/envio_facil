@@ -43,8 +43,8 @@ class _BoxSizePageState extends State<BoxSizePage> {
                   child: IconButton(
                     onPressed: () {
                       Navigator.of(context).pop();
-                      for (var i = 0; i < listCheckTamanhoPage.length; i++) {
-                        listCheckTamanhoPage[i] = false;
+                      for (var i = 0; i < listCheckBoxSizePage.length; i++) {
+                        listCheckBoxSizePage[i] = false;
                       }
                     },
                     icon: const Icon(
@@ -99,11 +99,11 @@ class _BoxSizePageState extends State<BoxSizePage> {
             ),
           ),
           CustomWidgetListView(
-            itemCount: listContainerTamanhoPage.length,
-            value: listCheckTamanhoPage,
-            title: listContainerTamanhoPage,
+            itemCount: listContainerBoxSizePage.length,
+            value: listCheckBoxSizePage,
+            title: listContainerBoxSizePage,
             subtitle: '00 x 00 cm',
-            imagePath: listImageTamanhoPage,
+            imagePath: listImageBoxSizePage,
           ),
           TextButton(
             onPressed: () {
@@ -117,7 +117,7 @@ class _BoxSizePageState extends State<BoxSizePage> {
           CustomWidgetBottomGreenButton(
             buttonText: 'Avançar',
             onPressed: () {
-              if (listCheckTamanhoPage.any((element) => element == true)) {
+              if (listCheckBoxSizePage.any((element) => element == true)) {
                 Navigator.of(context).pushNamed('/balancePage');
               } else {
                 ScaffoldMessenger.of(context).showSnackBar(
