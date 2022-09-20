@@ -3,14 +3,16 @@ import '../constants.dart';
 import '../widgets/custom_widget_positioned_image.dart';
 import '../widgets/custom_widget_positioned_text.dart';
 
-class ViajanteComponentBlackContainerHomePage extends StatelessWidget {
-  const ViajanteComponentBlackContainerHomePage({
+class ComponentSenderBlackContainerHomePage extends StatelessWidget {
+  const ComponentSenderBlackContainerHomePage({
     Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: 328,
+      height: 129,
       decoration: const BoxDecoration(
         gradient: LinearGradient(
           begin: Alignment.topLeft,
@@ -22,8 +24,6 @@ class ViajanteComponentBlackContainerHomePage extends StatelessWidget {
           tileMode: TileMode.mirror,
         ),
       ),
-      width: 328,
-      height: 129,
       child: Stack(
         children: [
           CustomWidgetPositionedText(
@@ -31,9 +31,9 @@ class ViajanteComponentBlackContainerHomePage extends StatelessWidget {
             bottom: 74,
             left: 58,
             right: 176,
-            text: 'Viajante',
+            text: 'Remetente',
             textAlign: TextAlign.center,
-            fontSize: 20,
+            fontSize: 19.4,
             fontFamily: titilliumWebSemiBold,
           ),
           CustomWidgetPositionedText(
@@ -41,9 +41,9 @@ class ViajanteComponentBlackContainerHomePage extends StatelessWidget {
             bottom: 24,
             left: 28,
             right: 120,
-            text: 'Vai viajar pra onde ?',
+            text: 'Pra onde quer enviar seu objeto ?',
             textAlign: TextAlign.left,
-           
+            
             fontFamily: titilliumWebRegular,
           ),
           const CustomWidgetPositionedImage(
@@ -51,11 +51,10 @@ class ViajanteComponentBlackContainerHomePage extends StatelessWidget {
             bottom: 42.81,
             left: 247.66,
             right: 39.67,
-            path: 'assets/home_page/delivery-truck.png',
+            path: 'assets/home_page/ic-box.png',
           ),
         ],
       ),
     );
   }
 }
-

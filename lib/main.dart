@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:jera_app/views/tamanho_page.dart';
-import 'package:jera_app/views/ponto_intermediario_page.dart';
-import 'package:jera_app/views/trajeto_page.dart';
-import 'package:jera_app/views/transporte_page.dart';
+import 'package:jera_app/views/box_size_page.dart';
+import 'package:jera_app/views/middle_point_page.dart';
+import 'package:jera_app/views/route_page.dart';
+import 'package:jera_app/views/transport_page.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'views/balance_page.dart';
 import 'views/home_page.dart';
-import 'views/valor_entrega_page.dart';
-import 'views/viagem_criada_page.dart';
+import 'views/delivery_value_page.dart';
+import 'views/trip_created_page.dart';
 
 void main() {
   runApp(const MyApp());

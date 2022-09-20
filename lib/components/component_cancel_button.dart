@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:jera_app/constants.dart';
 
-class ComponentCancelarButton extends StatelessWidget {
-  const ComponentCancelarButton({super.key});
+class ComponentCancelButton extends StatelessWidget {
+  const ComponentCancelButton({super.key});
 
   @override
   Widget build(BuildContext context) {

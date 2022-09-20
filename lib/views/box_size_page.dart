@@ -1,20 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:jera_app/components/component_cancelar_button.dart';
+import 'package:jera_app/components/component_cancel_button.dart';
+import 'package:jera_app/widgets/custom_widget_bottom_green_button.dart';
 
 import '../constants.dart';
-import '../widgets/custom_widget_bottom_green_button.dart';
+import '../widgets/custom_widget_list_view.dart';
 import '../widgets/custom_widget_positioned_text.dart';
 
-class ValorEntregaPage extends StatefulWidget {
-  const ValorEntregaPage({super.key});
+class TamanhoPage extends StatefulWidget {
+  const TamanhoPage({super.key});
 
   @override
-  State<ValorEntregaPage> createState() => _ValorEntregaPageState();
+  State<TamanhoPage> createState() => _TamanhoPageState();
 }
 
-class _ValorEntregaPageState extends State<ValorEntregaPage> {
-  double valorSugerido = 100;
-
+class _TamanhoPageState extends State<TamanhoPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,6 +43,9 @@ class _ValorEntregaPageState extends State<ValorEntregaPage> {
                   child: IconButton(
                     onPressed: () {
                       Navigator.of(context).pop();
+                      for (var i = 0; i < listCheckTamanhoPage.length; i++) {
+                        listCheckTamanhoPage[i] = false;
+                      }
                     },
                     icon: const Icon(
                       Icons.arrow_back,
@@ -63,13 +65,14 @@ class _ValorEntregaPageState extends State<ValorEntregaPage> {
                   fontSize: 14.9,
                   fontFamily: titilliumWebRegular,
                 ),
-                const ComponentCancelarButton(),
+                const ComponentCancelButton(),
                 CustomWidgetPositionedText(
                   top: 80,
                   bottom: 16,
                   left: 16,
                   right: 16,
-                  text: 'Definir preço mínimo do deslocamento?',
+                  text:
+                      'O volume que você pode deslocar tem tamanho similar a que?',
                   fontSize: 20,
                   textAlign: TextAlign.left,
                   fontFamily: titilliumWebRegular,
@@ -77,67 +80,54 @@ class _ValorEntregaPageState extends State<ValorEntregaPage> {
               ],
             ),
           ),
-          const Padding(
-            padding: EdgeInsets.only(
+          Padding(
+            padding: const EdgeInsets.only(
               top: 24,
-              bottom: 24,
               left: 16,
-              right: 227,
+              right: 269,
             ),
-            child: Text('Preço da Entrega'),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(
-              left: 128,
-              right: 150,
-            ),
-            child: Text(
-              'Valor sugerido',
-              style: TextStyle(
-                  fontSize: 12,
-                  color: const Color(0x22222252),
-                  fontFamily: titilliumWebRegular,
-                  fontWeight: FontWeight.w400),
+            child: Align(
+              alignment: Alignment.centerLeft,
+              child: Text(
+                'Tamanhos',
+                textAlign: TextAlign.left,
+                style: TextStyle(
+                    fontSize: 15,
+                    fontFamily: titilliumWebBold,
+                    fontWeight: FontWeight.bold),
+              ),
             ),
           ),
-          Slider(
-            activeColor: Colors.black,
-            thumbColor: Colors.black,
-            min: 0,
-            max: 250,
-            value: valorSugerido,
-            onChanged: (value) {
-              valorSugerido = value;
-              setState(() {});
+          CustomWidgetListView(
+            itemCount: listContainerTamanhoPage.length,
+            value: listCheckTamanhoPage,
+            title: listContainerTamanhoPage,
+            subtitle: '00 x 00 cm',
+            imagePath: listImageTamanhoPage,
+          ),
+          TextButton(
+            onPressed: () {
+              Navigator.of(context).pushNamed('/balancePage');
             },
-          ),
-          Padding(
-            padding: const EdgeInsets.only(
-              bottom: 17,
-              left: 145,
-              right: 150,
+            child: const Text(
+              'Pular Etapa',
+              style: TextStyle(color: Colors.black),
             ),
-            child: Text('R\$ ${valorSugerido.toInt()}'),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 24),
-            child: Text(
-              'Clique no valor acima, para um preço mais específico.',
-              style: TextStyle(
-                  fontSize: 12,
-                  fontFamily: titilliumWebRegular,
-                  fontWeight: FontWeight.w400,
-                  color: const Color(0x2222228A)),
-            ),
-          ),
-          const SizedBox(
-            height: 226,
           ),
           CustomWidgetBottomGreenButton(
-            onPressed: () {
-              Navigator.of(context).pushReplacementNamed('/viagemCriadaPage');
-            },
             buttonText: 'Avançar',
+            onPressed: () {
+              if (listCheckTamanhoPage.any((element) => element == true)) {
+                Navigator.of(context).pushNamed('/balancePage');
+              } else {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
+                    content: Text('Selecione uma opção'),
+                    duration: Duration(seconds: 2),
+                  ),
+                );
+              }
+            },
           ),
         ],
       ),

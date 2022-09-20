@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jera_app/components/component_cancelar_button.dart';
+import 'package:jera_app/components/component_cancel_button.dart';
 import 'package:jera_app/widgets/custom_widget_bottom_green_button.dart';
 
 import '../constants.dart';
@@ -65,7 +65,7 @@ class _BalancePageState extends State<BalancePage> {
                   fontSize: 14.9,
                   fontFamily: titilliumWebRegular,
                 ),
-                const ComponentCancelarButton(),
+                const ComponentCancelButton(),
                 CustomWidgetPositionedText(
                   top: 80,
                   bottom: 16,

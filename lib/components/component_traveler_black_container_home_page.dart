@@ -3,16 +3,14 @@ import '../constants.dart';
 import '../widgets/custom_widget_positioned_image.dart';
 import '../widgets/custom_widget_positioned_text.dart';
 
-class RemetenteComponentBlackContainerHomePage extends StatelessWidget {
-  const RemetenteComponentBlackContainerHomePage({
+class ComponentTravelerBlackContainerHomePage extends StatelessWidget {
+  const ComponentTravelerBlackContainerHomePage({
     Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 328,
-      height: 129,
       decoration: const BoxDecoration(
         gradient: LinearGradient(
           begin: Alignment.topLeft,
@@ -24,6 +22,8 @@ class RemetenteComponentBlackContainerHomePage extends StatelessWidget {
           tileMode: TileMode.mirror,
         ),
       ),
+      width: 328,
+      height: 129,
       child: Stack(
         children: [
           CustomWidgetPositionedText(
@@ -31,9 +31,9 @@ class RemetenteComponentBlackContainerHomePage extends StatelessWidget {
             bottom: 74,
             left: 58,
             right: 176,
-            text: 'Remetente',
+            text: 'Viajante',
             textAlign: TextAlign.center,
-            fontSize: 19.4,
+            fontSize: 20,
             fontFamily: titilliumWebSemiBold,
           ),
           CustomWidgetPositionedText(
@@ -41,9 +41,9 @@ class RemetenteComponentBlackContainerHomePage extends StatelessWidget {
             bottom: 24,
             left: 28,
             right: 120,
-            text: 'Pra onde quer enviar seu objeto ?',
+            text: 'Vai viajar pra onde ?',
             textAlign: TextAlign.left,
-            
+           
             fontFamily: titilliumWebRegular,
           ),
           const CustomWidgetPositionedImage(
@@ -51,10 +51,11 @@ class RemetenteComponentBlackContainerHomePage extends StatelessWidget {
             bottom: 42.81,
             left: 247.66,
             right: 39.67,
-            path: 'assets/home_page/ic-box.png',
+            path: 'assets/home_page/delivery-truck.png',
           ),
         ],
       ),
     );
   }
 }
+

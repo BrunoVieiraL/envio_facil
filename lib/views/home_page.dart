@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-
-import '../components/component_remetente_black_container_home_page.dart';
-import '../components/component_viajante_black_container_home_page.dart';
+import 'package:jera_app/components/component_sender_black_container_home_page.dart';
+import 'package:jera_app/components/component_traveler_black_container_home_page.dart';
 import '../constants.dart';
 
 class HomePage extends StatelessWidget {
@@ -59,13 +58,13 @@ class HomePage extends StatelessWidget {
             padding: EdgeInsets.only(bottom: 40),
             child: Text('Entregue ou Envie'),
           ),
-          const RemetenteComponentBlackContainerHomePage(),
+          const ComponentSenderBlackContainerHomePage(),
           const SizedBox(height: 24),
           GestureDetector(
               onTap: () {
                 Navigator.of(context).pushReplacementNamed('/transportePage');
               },
-              child: const ViajanteComponentBlackContainerHomePage()),
+              child: const ComponentTravelerBlackContainerHomePage()),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
