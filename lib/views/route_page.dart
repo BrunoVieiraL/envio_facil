@@ -3,6 +3,7 @@ import 'package:geocode/geocode.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:jera_app/constants.dart';
 import 'package:jera_app/repositories/directions_repository.dart';
+import 'package:jera_app/widgets/custom_widget_bottom_green_button.dart';
 import 'package:jera_app/widgets/custom_widget_date_container.dart';
 
 import '../models/directions_model.dart';
@@ -223,33 +224,13 @@ class _RoutePageState extends State<RoutePage> {
                           fontWeight: FontWeight.w400),
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(
-                      top: 33,
-                      left: 16,
-                      right: 16,
-                      bottom: 16,
-                    ),
-                    child: SizedBox(
-                      width: 328,
-                      height: 48,
-                      child: ElevatedButton(
-                        onPressed: () {
-                          Navigator.of(context).pushNamed('/boxSizePage');
-                        },
-                        style:
-                            TextButton.styleFrom(backgroundColor: Colors.green),
-                        child: Text(
-                          'Avançar',
-                          style: TextStyle(
-                            fontFamily: titilliumWebBold,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 16,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
+                  CustomWidgetBottomGreenButton(
+                    buttonText: 'Avançar',
+                    top: 33,
+                    onPressed: () {
+                      Navigator.of(context).pushNamed('/boxSizePage');
+                    },
+                  )
                 ],
               ),
             ),

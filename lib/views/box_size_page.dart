@@ -105,13 +105,16 @@ class _BoxSizePageState extends State<BoxSizePage> {
             subtitle: '00 x 00 cm',
             imagePath: listImageBoxSizePage,
           ),
-          TextButton(
-            onPressed: () {
-              Navigator.of(context).pushNamed('/balancePage');
-            },
-            child: const Text(
-              'Pular Etapa',
-              style: TextStyle(color: Colors.black),
+          Visibility(
+            visible: listCheckBoxSizePage.contains(true) ? true : false,
+            child: TextButton(
+              onPressed: () {
+                Navigator.of(context).pushNamed('/balancePage');
+              },
+              child: const Text(
+                'Pular Etapa',
+                style: TextStyle(color: Colors.black),
+              ),
             ),
           ),
           CustomWidgetBottomGreenButton(
