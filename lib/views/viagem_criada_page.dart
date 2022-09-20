@@ -48,7 +48,6 @@ class ViagemCriadaPage extends StatelessWidget {
             child: Text(
               'Vamos ver os volumes já disponíveis para a sua viagem.',
               style: TextStyle(
-                fontSize: 14,
                 fontFamily: titilliumWebRegular,
                 fontWeight: FontWeight.w400,
               ),

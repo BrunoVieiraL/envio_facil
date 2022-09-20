@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:geocode/geocode.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:jera_app/constants.dart';
 import 'package:jera_app/repositories/directions_repository.dart';
@@ -21,6 +22,21 @@ class _TrajetoPageState extends State<TrajetoPage> {
   Marker? destination;
   LatLng initalPosition = const LatLng(-4.351485, -39.314338);
   Directions? _info;
+  TextEditingController cidadeOrigem = TextEditingController();
+  TextEditingController cidadeDestino = TextEditingController();
+  late LatLng coordenadasOrigem;
+  late LatLng coordenadasDestino;
+
+  getGeoData(String city) async {
+    GeoCode geoCode = GeoCode();
+    try {
+      Coordinates coordinates = await geoCode.forwardGeocoding(address: city);
+
+      return LatLng(coordinates.latitude!, coordinates.longitude!);
+    } catch (e) {
+      throw Exception('Error');
+    }
+  }
 
   @override
   void dispose() {
@@ -36,18 +52,67 @@ class _TrajetoPageState extends State<TrajetoPage> {
         backgroundColor: const Color(0xFFFAFAFA),
         resizeToAvoidBottomInset: true,
         appBar: AppBar(
+          title: Column(
+            children: [
+              Text(
+                'Viajante',
+                style: TextStyle(
+                  fontSize: 16,
+                  fontFamily: titilliumWebRegular,
+                  fontWeight: FontWeight.w400,
+                  color: Colors.white.withOpacity(0.54),
+                ),
+              ),
+            ],
+          ),
+          centerTitle: true,
           leading: IconButton(
             icon: const Icon(Icons.arrow_back),
             onPressed: () {
               Navigator.of(context).pop();
             },
           ),
+          flexibleSpace: Padding(
+            padding: const EdgeInsets.only(top: 72, left: 16),
+            child: Text(
+              'Qual o trajeto da sua viagem?',
+              style: TextStyle(
+                fontSize: 20,
+                color: Colors.white,
+                fontFamily: titilliumWebRegular,
+                fontWeight: FontWeight.w400,
+              ),
+            ),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pushReplacementNamed('/homePage');
+              },
+              child: Text(
+                'Cancelar',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontFamily: titilliumWebBold,
+                  fontWeight: FontWeight.bold,
+                ),
+                overflow: TextOverflow.visible,
+              ),
+            ),
+          ],
           backgroundColor: const Color(0xFF353740),
           bottom: const TabBar(
             tabs: [
-              Text('Rotas'),
-              Text('Mapa'),
+              Padding(
+                padding: EdgeInsets.only(bottom: 8.0),
+                child: Text('Rotas'),
+              ),
+              Padding(
+                padding: EdgeInsets.only(bottom: 8.0),
+                child: Text('Mapa'),
+              ),
             ],
+            indicatorColor: Colors.white,
           ),
         ),
         body: TabBarView(
@@ -71,7 +136,6 @@ class _TrajetoPageState extends State<TrajetoPage> {
                         color: const Color(0xFF222222),
                         fontFamily: titilliumWebBold,
                         fontWeight: FontWeight.bold,
-                        fontSize: 14.2,
                       ),
                     ),
                   ),
@@ -79,36 +143,47 @@ class _TrajetoPageState extends State<TrajetoPage> {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       CustomWidgetDateContainer(
-                          textPartida: 'Data de Partida',
-                          dataPartida: dataPartida,
-                          left: 16,
-                          right: 16),
+                        textPartida: 'Data de Partida',
+                        dataPartida: dataPartida,
+                        left: 16,
+                        right: 16,
+                      ),
                       CustomWidgetDateContainer(
-                          textPartida: 'Data de Chegada',
-                          dataPartida: dataChegada,
-                          right: 16),
+                        textPartida: 'Data de Chegada',
+                        dataPartida: dataChegada,
+                        right: 16,
+                      ),
                     ],
                   ),
                   const SizedBox(
                     height: 31,
                   ),
-                  const Padding(
-                    padding: EdgeInsets.only(left: 17, right: 16, bottom: 30),
+                  Padding(
+                    padding:
+                        const EdgeInsets.only(left: 17, right: 16, bottom: 30),
                     child: TextField(
-                      decoration: InputDecoration(
-                          prefixIcon:
-                              Icon(Icons.search, color: Color(0xFF353740)),
-                          labelText: 'Cidade de Origem',
-                          floatingLabelStyle:
-                              TextStyle(color: Color(0xFF353740)),
-                          floatingLabelBehavior: FloatingLabelBehavior.always,
-                          border: OutlineInputBorder()),
+                      controller: cidadeOrigem,
+                      onSubmitted: (city) async {
+                        coordenadasOrigem = await getGeoData(city);
+                      },
+                      decoration: const InputDecoration(
+                        prefixIcon:
+                            Icon(Icons.search, color: Color(0xFF353740)),
+                        labelText: 'Cidade de Origem',
+                        floatingLabelStyle: TextStyle(color: Color(0xFF353740)),
+                        floatingLabelBehavior: FloatingLabelBehavior.always,
+                        border: OutlineInputBorder(),
+                      ),
                     ),
                   ),
-                  const Padding(
-                    padding: EdgeInsets.only(left: 17, right: 16),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 17, right: 16),
                     child: TextField(
-                      decoration: InputDecoration(
+                      controller: cidadeDestino,
+                      onSubmitted: (city) async {
+                        coordenadasDestino = await getGeoData(city);
+                      },
+                      decoration: const InputDecoration(
                         prefixIcon:
                             Icon(Icons.search, color: Color(0xFF353740)),
                         labelText: 'Cidade de Destino',
@@ -135,7 +210,6 @@ class _TrajetoPageState extends State<TrajetoPage> {
                         style: TextStyle(
                             color: const Color(0xFF353740),
                             fontFamily: titilliumWebBold,
-                            fontSize: 14,
                             fontWeight: FontWeight.bold),
                       ),
                     ),
@@ -145,7 +219,6 @@ class _TrajetoPageState extends State<TrajetoPage> {
                     child: Text(
                       'E aumente sua chance de match',
                       style: TextStyle(
-                          fontSize: 14,
                           fontFamily: titilliumWebRegular,
                           color: const Color(0x22222252),
                           fontWeight: FontWeight.w400),
@@ -188,11 +261,44 @@ class _TrajetoPageState extends State<TrajetoPage> {
                 mapType: MapType.normal,
                 initialCameraPosition: CameraPosition(
                   target: initalPosition,
-                  zoom: 8,
+                  zoom: 9,
                 ),
                 myLocationButtonEnabled: false,
                 zoomControlsEnabled: false,
-                onMapCreated: (controller) => googleMapController = controller,
+                onCameraMove: (camera) async {
+                  if (origin == null ||
+                      (origin != null && destination != null)) {
+                    origin = Marker(
+                      markerId: const MarkerId('origin'),
+                      icon: await BitmapDescriptor.fromAssetImage(
+                          const ImageConfiguration(),
+                          'assets/trajeto_page/ic-partida.png'),
+                      position: coordenadasOrigem,
+                    );
+                    destination = null;
+                    _info = null;
+                    initalPosition = coordenadasOrigem;
+                    setState(() {});
+                  } else {
+                    destination = Marker(
+                      markerId: const MarkerId('destination'),
+                      icon: await BitmapDescriptor.fromAssetImage(
+                          const ImageConfiguration(),
+                          'assets/trajeto_page/ic-destino.png'),
+                      position: coordenadasDestino,
+                    );
+                    final directions = await DirectionsRepository()
+                        .getDirections(
+                            origin: origin!.position,
+                            destination: destination!.position);
+                    _info = directions;
+
+                    setState(() {});
+                  }
+                },
+                onMapCreated: (controller) {
+                  googleMapController = controller;
+                },
                 markers: {
                   if (origin != null) origin!,
                   if (destination != null) destination!
@@ -207,35 +313,6 @@ class _TrajetoPageState extends State<TrajetoPage> {
                           .map((e) => LatLng(e.latitude, e.longitude))
                           .toList(),
                     ),
-                },
-                onTap: (LatLng latlong) async {
-                  if (origin == null ||
-                      (origin != null && destination != null)) {
-                    origin = Marker(
-                      markerId: const MarkerId('origin'),
-                      icon: await BitmapDescriptor.fromAssetImage(
-                          const ImageConfiguration(),
-                          'assets/trajeto_page/ic-partida.png'),
-                      position: initalPosition,
-                    );
-                    destination = null;
-                    _info = null;
-                    setState(() {});
-                  } else {
-                    destination = Marker(
-                      markerId: const MarkerId('destination'),
-                      icon: await BitmapDescriptor.fromAssetImage(
-                          const ImageConfiguration(),
-                          'assets/trajeto_page/ic-destino.png'),
-                      position: latlong,
-                    );
-                    final directions = await DirectionsRepository()
-                        .getDirections(
-                            origin: origin!.position,
-                            destination: destination!.position);
-                    _info = directions;
-                    setState(() {});
-                  }
                 },
               ),
             ),

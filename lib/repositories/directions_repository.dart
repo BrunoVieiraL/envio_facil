@@ -7,13 +7,12 @@ import '../models/directions_model.dart';
 class DirectionsRepository {
   static const String _baseUrl =
       'https://maps.googleapis.com/maps/api/directions/json?';
-
-  final Dio _dio;
-  DirectionsRepository({Dio? dio}) : _dio = dio ?? Dio();
+  
+  Dio dio = Dio();
 
   Future<Directions> getDirections(
       {required LatLng origin, required LatLng destination}) async {
-    final response = await _dio.get(_baseUrl, queryParameters: {
+    final response = await dio.get(_baseUrl, queryParameters: {
       'origin': '${origin.latitude}, ${origin.longitude}',
       'destination': '${destination.latitude}, ${destination.longitude}',
       'key': googleAPIKey,
@@ -23,4 +22,6 @@ class DirectionsRepository {
     }
     return throw Exception('Erro');
   }
+
+  
 }

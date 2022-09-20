@@ -43,7 +43,7 @@ class ViajanteComponentBlackContainerHomePage extends StatelessWidget {
             right: 120,
             text: 'Vai viajar pra onde ?',
             textAlign: TextAlign.left,
-            fontSize: 14,
+           
             fontFamily: titilliumWebRegular,
           ),
           const CustomWidgetPositionedImage(

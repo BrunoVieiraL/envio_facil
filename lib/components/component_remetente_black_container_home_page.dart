@@ -20,7 +20,7 @@ class RemetenteComponentBlackContainerHomePage extends StatelessWidget {
           colors: <Color>[
             Color(0xFF353740),
             Color(0xFF222222),
-          ], // Gradient from https://learnui.design/tools/gradient-generator.html
+          ],
           tileMode: TileMode.mirror,
         ),
       ),
@@ -43,7 +43,7 @@ class RemetenteComponentBlackContainerHomePage extends StatelessWidget {
             right: 120,
             text: 'Pra onde quer enviar seu objeto ?',
             textAlign: TextAlign.left,
-            fontSize: 14,
+            
             fontFamily: titilliumWebRegular,
           ),
           const CustomWidgetPositionedImage(
@@ -52,7 +52,7 @@ class RemetenteComponentBlackContainerHomePage extends StatelessWidget {
             left: 247.66,
             right: 39.67,
             path: 'assets/home_page/ic-box.png',
-          )
+          ),
         ],
       ),
     );
