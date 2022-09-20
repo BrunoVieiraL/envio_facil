@@ -6,14 +6,14 @@ import '../constants.dart';
 import '../widgets/custom_widget_list_view.dart';
 import '../widgets/custom_widget_positioned_text.dart';
 
-class TamanhoPage extends StatefulWidget {
-  const TamanhoPage({super.key});
+class BoxSizePage extends StatefulWidget {
+  const BoxSizePage({super.key});
 
   @override
-  State<TamanhoPage> createState() => _TamanhoPageState();
+  State<BoxSizePage> createState() => _BoxSizePageState();
 }
 
-class _TamanhoPageState extends State<TamanhoPage> {
+class _BoxSizePageState extends State<BoxSizePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

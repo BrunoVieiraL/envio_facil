@@ -62,7 +62,7 @@ class HomePage extends StatelessWidget {
           const SizedBox(height: 24),
           GestureDetector(
               onTap: () {
-                Navigator.of(context).pushReplacementNamed('/transportePage');
+                Navigator.of(context).pushReplacementNamed('/transportPage');
               },
               child: const ComponentTravelerBlackContainerHomePage()),
         ],

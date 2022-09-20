@@ -4,14 +4,14 @@ import 'package:jera_app/widgets/custom_widget_bottom_green_button.dart';
 import 'package:jera_app/widgets/custom_widget_list_view.dart';
 import 'package:jera_app/widgets/custom_widget_positioned_text.dart';
 
-class TransportePage extends StatefulWidget {
-  const TransportePage({super.key});
+class TransportPage extends StatefulWidget {
+  const TransportPage({super.key});
 
   @override
-  State<TransportePage> createState() => _TransportePageState();
+  State<TransportPage> createState() => _TransportPageState();
 }
 
-class _TransportePageState extends State<TransportePage> {
+class _TransportPageState extends State<TransportPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -104,7 +104,7 @@ class _TransportePageState extends State<TransportePage> {
             buttonText: 'Avançar',
             onPressed: () {
               if (listCheckTransportePage.any((element) => element == true)) {
-                Navigator.of(context).pushNamed('/trajetoPage');
+                Navigator.of(context).pushNamed('/routePage');
               } else {
                 ScaffoldMessenger.of(context).showSnackBar(
                   const SnackBar(

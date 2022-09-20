@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:jera_app/constants.dart';
 import 'package:jera_app/widgets/custom_widget_bottom_green_button.dart';
 
-class ViagemCriadaPage extends StatelessWidget {
-  const ViagemCriadaPage({super.key});
+class TripCreatedPage extends StatelessWidget {
+  const TripCreatedPage({super.key});
 
   @override
   Widget build(BuildContext context) {

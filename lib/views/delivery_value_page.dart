@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:jera_app/components/component_cancel_button.dart';
-
 import '../constants.dart';
 import '../widgets/custom_widget_bottom_green_button.dart';
 import '../widgets/custom_widget_positioned_text.dart';
 
-class ValorEntregaPage extends StatefulWidget {
-  const ValorEntregaPage({super.key});
+class DeliveryValuePage extends StatefulWidget {
+  const DeliveryValuePage({super.key});
 
   @override
-  State<ValorEntregaPage> createState() => _ValorEntregaPageState();
+  State<DeliveryValuePage> createState() => _DeliveryValuePageState();
 }
 
-class _ValorEntregaPageState extends State<ValorEntregaPage> {
+class _DeliveryValuePageState extends State<DeliveryValuePage> {
   double valorSugerido = 100;
 
   @override
@@ -135,7 +134,7 @@ class _ValorEntregaPageState extends State<ValorEntregaPage> {
           ),
           CustomWidgetBottomGreenButton(
             onPressed: () {
-              Navigator.of(context).pushReplacementNamed('/viagemCriadaPage');
+              Navigator.of(context).pushReplacementNamed('/tripCreatedPage');
             },
             buttonText: 'Avançar',
           ),

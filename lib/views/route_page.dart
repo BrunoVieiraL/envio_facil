@@ -7,14 +7,14 @@ import 'package:jera_app/widgets/custom_widget_date_container.dart';
 
 import '../models/directions_model.dart';
 
-class TrajetoPage extends StatefulWidget {
-  const TrajetoPage({super.key});
+class RoutePage extends StatefulWidget {
+  const RoutePage({super.key});
 
   @override
-  State<TrajetoPage> createState() => _TrajetoPageState();
+  State<RoutePage> createState() => _RoutePageState();
 }
 
-class _TrajetoPageState extends State<TrajetoPage> {
+class _RoutePageState extends State<RoutePage> {
   DateTime? dataPartida;
   DateTime? dataChegada;
   GoogleMapController? googleMapController;
@@ -198,8 +198,7 @@ class _TrajetoPageState extends State<TrajetoPage> {
                     padding: const EdgeInsets.only(left: 60.25, right: 60.25),
                     child: TextButton.icon(
                       onPressed: () {
-                        Navigator.of(context)
-                            .pushNamed('/pontoIntermediarioPage');
+                        Navigator.of(context).pushNamed('/middlePointPage');
                       },
                       icon: const Icon(
                         Icons.add_circle_outline,
@@ -236,7 +235,7 @@ class _TrajetoPageState extends State<TrajetoPage> {
                       height: 48,
                       child: ElevatedButton(
                         onPressed: () {
-                          Navigator.of(context).pushNamed('/tamanhoPage');
+                          Navigator.of(context).pushNamed('/boxSizePage');
                         },
                         style:
                             TextButton.styleFrom(backgroundColor: Colors.green),

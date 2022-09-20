@@ -105,7 +105,7 @@ class _BalancePageState extends State<BalancePage> {
           ),
           TextButton(
             onPressed: () {
-              Navigator.of(context).pushNamed('/valorEntregaPage');
+              Navigator.of(context).pushNamed('/deliveryValuePage');
             },
             child: const Text(
               'Pular Etapa',
@@ -116,7 +116,7 @@ class _BalancePageState extends State<BalancePage> {
             buttonText: 'Avançar',
             onPressed: () {
               if (listCheckBalancePage.any((element) => element == true)) {
-                Navigator.of(context).pushNamed('/valorEntregaPage');
+                Navigator.of(context).pushNamed('/deliveryValuePage');
               } else {
                 ScaffoldMessenger.of(context).showSnackBar(
                   const SnackBar(

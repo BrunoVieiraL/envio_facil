@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class PontoIntermediarioPage extends StatelessWidget {
-  const PontoIntermediarioPage({super.key});
+class MiddlePointPage extends StatelessWidget {
+  const MiddlePointPage({super.key});
 
   @override
   Widget build(BuildContext context) {
