@@ -51,7 +51,7 @@ class _RoutePageState extends State<RoutePage> {
       length: 2,
       child: Scaffold(
         backgroundColor: const Color(0xFFFAFAFA),
-        resizeToAvoidBottomInset: true,
+        resizeToAvoidBottomInset: false,
         appBar: AppBar(
           title: Column(
             children: [
@@ -163,6 +163,7 @@ class _RoutePageState extends State<RoutePage> {
                     padding:
                         const EdgeInsets.only(left: 17, right: 16, bottom: 30),
                     child: TextField(
+                      textInputAction: TextInputAction.next,
                       controller: cidadeOrigem,
                       onSubmitted: (city) async {
                         coordenadasOrigem = await getGeoData(city);
@@ -180,6 +181,7 @@ class _RoutePageState extends State<RoutePage> {
                   Padding(
                     padding: const EdgeInsets.only(left: 17, right: 16),
                     child: TextField(
+                      textInputAction: TextInputAction.done,
                       controller: cidadeDestino,
                       onSubmitted: (city) async {
                         coordenadasDestino = await getGeoData(city);
