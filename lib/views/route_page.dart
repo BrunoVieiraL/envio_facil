@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:geocode/geocode.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:jera_app/constants.dart';
+import 'package:jera_app/repositories/current_location.dart';
 import 'package:jera_app/repositories/directions_repository.dart';
 import 'package:jera_app/widgets/custom_widget_bottom_green_button.dart';
 import 'package:jera_app/widgets/custom_widget_date_container.dart';
@@ -27,6 +29,7 @@ class _RoutePageState extends State<RoutePage> {
   TextEditingController cidadeDestino = TextEditingController();
   late LatLng coordenadasOrigem;
   late LatLng coordenadasDestino;
+  late Position teste;
 
   getGeoData(String city) async {
     GeoCode geoCode = GeoCode();
@@ -37,6 +40,18 @@ class _RoutePageState extends State<RoutePage> {
     } catch (e) {
       throw Exception('Error');
     }
+  }
+
+  getCurrentLocation() async {
+    teste = await CurrentLocation.determinePosition();
+    initalPosition = LatLng(teste.latitude, teste.longitude);
+    setState(() {});
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    getCurrentLocation();
   }
 
   @override
