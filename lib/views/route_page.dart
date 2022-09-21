@@ -27,8 +27,8 @@ class _RoutePageState extends State<RoutePage> {
   Directions? _info;
   TextEditingController cidadeOrigem = TextEditingController();
   TextEditingController cidadeDestino = TextEditingController();
-  late LatLng coordenadasOrigem;
-  late LatLng coordenadasDestino;
+  LatLng? coordenadasOrigem;
+  LatLng? coordenadasDestino;
   late Position teste;
 
   getGeoData(String city) async {
@@ -258,7 +258,7 @@ class _RoutePageState extends State<RoutePage> {
                 mapType: MapType.normal,
                 initialCameraPosition: CameraPosition(
                   target: initalPosition,
-                  zoom: 9,
+                  zoom: 8,
                 ),
                 myLocationButtonEnabled: false,
                 zoomControlsEnabled: false,
@@ -270,11 +270,10 @@ class _RoutePageState extends State<RoutePage> {
                       icon: await BitmapDescriptor.fromAssetImage(
                           const ImageConfiguration(),
                           'assets/route_page/ic-partida.png'),
-                      position: coordenadasOrigem,
+                      position: coordenadasOrigem ?? const LatLng(0, 0),
                     );
                     destination = null;
                     _info = null;
-                    initalPosition = coordenadasOrigem;
                     setState(() {});
                   } else {
                     destination = Marker(
@@ -282,7 +281,7 @@ class _RoutePageState extends State<RoutePage> {
                       icon: await BitmapDescriptor.fromAssetImage(
                           const ImageConfiguration(),
                           'assets/route_page/ic-destino.png'),
-                      position: coordenadasDestino,
+                      position: coordenadasDestino ?? const LatLng(0, 0),
                     );
                     final directions = await DirectionsRepository()
                         .getDirections(
