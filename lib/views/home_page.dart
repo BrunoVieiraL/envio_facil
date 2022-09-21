@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jera_app/components/component_sender_black_container_home_page.dart';
-import 'package:jera_app/components/component_traveler_black_container_home_page.dart';
+import 'package:jera_app/components/component_black_container_home_page.dart';
 import '../constants.dart';
 
 class HomePage extends StatelessWidget {
@@ -58,13 +57,20 @@ class HomePage extends StatelessWidget {
             padding: EdgeInsets.only(bottom: 40),
             child: Text('Entregue ou Envie'),
           ),
-          const ComponentSenderBlackContainerHomePage(),
+          const ComponentBlackContainerHomePage(
+            title: 'Remetente',
+            subtitle: 'Pra onde quer enviar seu objeto ?',
+            imagePath: 'assets/home_page/ic-box.png',
+          ),
           const SizedBox(height: 24),
-          GestureDetector(
-              onTap: () {
-                Navigator.of(context).pushReplacementNamed('/transportPage');
-              },
-              child: const ComponentTravelerBlackContainerHomePage()),
+          ComponentBlackContainerHomePage(
+            onTap: () {
+              Navigator.of(context).pushReplacementNamed('/transportPage');
+            },
+            title: 'Viajante',
+            subtitle: 'Vai viajar pra onde ?',
+            imagePath: 'assets/home_page/delivery-truck.png',
+          ),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
