@@ -254,7 +254,7 @@ class _RoutePageState extends State<RoutePage> {
                       markerId: const MarkerId('origin'),
                       icon: await BitmapDescriptor.fromAssetImage(
                           const ImageConfiguration(),
-                          'assets/trajeto_page/ic-partida.png'),
+                          'assets/route_page/ic-partida.png'),
                       position: coordenadasOrigem,
                     );
                     destination = null;
@@ -266,7 +266,7 @@ class _RoutePageState extends State<RoutePage> {
                       markerId: const MarkerId('destination'),
                       icon: await BitmapDescriptor.fromAssetImage(
                           const ImageConfiguration(),
-                          'assets/trajeto_page/ic-destino.png'),
+                          'assets/route_page/ic-destino.png'),
                       position: coordenadasDestino,
                     );
                     final directions = await DirectionsRepository()
