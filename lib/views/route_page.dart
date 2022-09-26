@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:geocode/geocode.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -73,7 +74,7 @@ class _RoutePageState extends State<RoutePage> {
               Text(
                 'Viajante',
                 style: TextStyle(
-                  fontSize: 16,
+                  fontSize: 16.sp,
                   fontFamily: titilliumWebRegular,
                   fontWeight: FontWeight.w400,
                   color: Colors.white.withOpacity(0.54),
@@ -89,11 +90,11 @@ class _RoutePageState extends State<RoutePage> {
             },
           ),
           flexibleSpace: Padding(
-            padding: const EdgeInsets.only(top: 72, left: 16),
+            padding: EdgeInsets.only(top: 72.h, left: 16.w),
             child: Text(
               'Qual o trajeto da sua viagem?',
               style: TextStyle(
-                fontSize: 20,
+                fontSize: 20.sp,
                 color: Colors.white,
                 fontFamily: titilliumWebRegular,
                 fontWeight: FontWeight.w400,
@@ -117,15 +118,15 @@ class _RoutePageState extends State<RoutePage> {
             ),
           ],
           backgroundColor: const Color(0xFF353740),
-          bottom: const TabBar(
+          bottom: TabBar(
             tabs: [
               Padding(
-                padding: EdgeInsets.only(bottom: 8.0),
-                child: Text('Rotas'),
+                padding: EdgeInsets.only(bottom: 8.0.h),
+                child: const Text('Rotas'),
               ),
               Padding(
-                padding: EdgeInsets.only(bottom: 8.0),
-                child: Text('Mapa'),
+                padding: EdgeInsets.only(bottom: 8.0.h),
+                child: const Text('Mapa'),
               ),
             ],
             indicatorColor: Colors.white,
@@ -140,11 +141,11 @@ class _RoutePageState extends State<RoutePage> {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(
-                      top: 25,
-                      left: 16,
-                      right: 86,
-                      bottom: 24,
+                    padding: EdgeInsets.only(
+                      top: 25.h,
+                      bottom: 24.h,
+                      left: 16.w,
+                      right: 86.w,
                     ),
                     child: Text(
                       'Selecione a Data e a Rota da sua viagem',
@@ -161,22 +162,25 @@ class _RoutePageState extends State<RoutePage> {
                       CustomWidgetDateContainer(
                         textPartida: 'Data de Partida',
                         dataPartida: dataPartida,
-                        left: 16,
-                        right: 16,
+                        left: 16.w,
+                        right: 16.w,
                       ),
                       CustomWidgetDateContainer(
                         textPartida: 'Data de Chegada',
                         dataPartida: dataChegada,
-                        right: 16,
+                        right: 16.w,
                       ),
                     ],
                   ),
-                  const SizedBox(
-                    height: 31,
+                  SizedBox(
+                    height: 31.h,
                   ),
                   Padding(
-                    padding:
-                        const EdgeInsets.only(left: 17, right: 16, bottom: 30),
+                    padding: EdgeInsets.only(
+                      left: 17.w,
+                      right: 16.w,
+                      bottom: 30.h,
+                    ),
                     child: TextField(
                       textInputAction: TextInputAction.next,
                       controller: cidadeOrigem,
@@ -194,7 +198,10 @@ class _RoutePageState extends State<RoutePage> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(left: 17, right: 16),
+                    padding: EdgeInsets.only(
+                      left: 17.w,
+                      right: 16.w,
+                    ),
                     child: TextField(
                       textInputAction: TextInputAction.done,
                       controller: cidadeDestino,
@@ -211,9 +218,9 @@ class _RoutePageState extends State<RoutePage> {
                       ),
                     ),
                   ),
-                  const SizedBox(height: 28),
+                  SizedBox(height: 28.h),
                   Padding(
-                    padding: const EdgeInsets.only(left: 60.25, right: 60.25),
+                    padding: EdgeInsets.only(left: 60.25.w, right: 60.25.w),
                     child: TextButton.icon(
                       onPressed: () {
                         Navigator.of(context).pushNamed('/middlePointPage');
@@ -232,7 +239,7 @@ class _RoutePageState extends State<RoutePage> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(left: 94, right: 62),
+                    padding: EdgeInsets.only(left: 94.w, right: 62.w),
                     child: Text(
                       'E aumente sua chance de match',
                       style: TextStyle(
@@ -243,7 +250,7 @@ class _RoutePageState extends State<RoutePage> {
                   ),
                   CustomWidgetBottomGreenButton(
                     buttonText: 'Avançar',
-                    top: 33,
+                    top: 33.h,
                     onPressed: () {
                       Navigator.of(context).pushNamed('/boxSizePage');
                     },
