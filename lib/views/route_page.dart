@@ -89,9 +89,13 @@ class _RoutePageState extends State<RoutePage> {
               Navigator.of(context).pop();
             },
           ),
-          flexibleSpace: Padding(
-            padding: EdgeInsets.only(top: 72.h, left: 16.w),
-            child: Text(
+          flexibleSpace: FlexibleSpaceBar(
+            titlePadding: EdgeInsets.only(
+              top: 16.h,
+              left: 16.w,
+              bottom: 27.h,
+            ),
+            title: Text(
               'Qual o trajeto da sua viagem?',
               style: TextStyle(
                 fontSize: 20.sp,
