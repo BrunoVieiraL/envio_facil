@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:jera_app/constants.dart';
 import 'package:jera_app/widgets/custom_widget_bottom_green_button.dart';
 import 'package:jera_app/widgets/custom_widget_list_view.dart';
@@ -19,13 +20,13 @@ class _TransportPageState extends State<TransportPage> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Container(
-            height: 151,
-            width: 360,
-            decoration: const BoxDecoration(
+            height: 151.h,
+            width: 360.w,
+            decoration: BoxDecoration(
               gradient: LinearGradient(
                   begin: Alignment.topLeft,
-                  end: Alignment(3, 3),
-                  colors: <Color>[
+                  end: Alignment(3.w, 3.h),
+                  colors: const <Color>[
                     Color(0xFF353740),
                     Color(0xFF222222),
                   ],
@@ -34,10 +35,10 @@ class _TransportPageState extends State<TransportPage> {
             child: Stack(
               children: [
                 Positioned(
-                  top: 40,
-                  bottom: 87,
-                  left: 16,
-                  right: 320,
+                  top: 40.h,
+                  bottom: 87.h,
+                  left: 16.w,
+                  right: 320.w,
                   child: IconButton(
                     onPressed: () {
                       Navigator.of(context).pushReplacementNamed('/homePage');
@@ -45,31 +46,31 @@ class _TransportPageState extends State<TransportPage> {
                         listCheckTransportPage[i] = false;
                       }
                     },
-                    icon: const Icon(
+                    icon: Icon(
                       Icons.close,
                       color: Colors.white,
-                      size: 24,
+                      size: 24.w,
                     ),
                   ),
                 ),
                 CustomWidgetPositionedText(
-                  top: 40,
-                  bottom: 87,
-                  left: 153,
-                  right: 153,
+                  top: 40.h,
+                  bottom: 87.h,
+                  left: 153.w,
+                  right: 153.w,
                   text: 'Viajante',
                   color: Colors.white.withOpacity(0.54),
                   textAlign: TextAlign.center,
-                  fontSize: 14.9,
+                  fontSize: 15.sp,
                   fontFamily: titilliumWebRegular,
                 ),
                 CustomWidgetPositionedText(
-                  top: 80,
-                  bottom: 16,
-                  left: 16,
-                  right: 16,
+                  top: 80.h,
+                  bottom: 16.h,
+                  left: 16.w,
+                  right: 16.w,
                   text: 'Qual será o meio de transporte da sua viagem ?',
-                  fontSize: 20,
+                  fontSize: 20.sp,
                   textAlign: TextAlign.left,
                   fontFamily: titilliumWebRegular,
                 ),
@@ -77,10 +78,10 @@ class _TransportPageState extends State<TransportPage> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(
-              top: 24,
-              left: 16,
-              right: 269,
+            padding: EdgeInsets.only(
+              top: 24.h,
+              left: 16.w,
+              right: 269.w,
             ),
             child: Align(
               alignment: Alignment.centerLeft,
@@ -88,9 +89,10 @@ class _TransportPageState extends State<TransportPage> {
                 'Transporte',
                 textAlign: TextAlign.left,
                 style: TextStyle(
-                    fontSize: 15,
-                    fontFamily: titilliumWebBold,
-                    fontWeight: FontWeight.bold),
+                  fontSize: 15.sp,
+                  fontFamily: titilliumWebBold,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
           ),
