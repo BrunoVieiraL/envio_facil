@@ -24,11 +24,11 @@ class _BalancePageState extends State<BalancePage> {
           Container(
             height: 151.h,
             width: 360.w,
-            decoration:  BoxDecoration(
+            decoration: BoxDecoration(
               gradient: LinearGradient(
                   begin: Alignment.topLeft,
                   end: Alignment(3.w, 3.h),
-                  colors: <Color>[
+                  colors: const <Color>[
                     Color(0xFF353740),
                     Color(0xFF222222),
                   ],
@@ -48,7 +48,7 @@ class _BalancePageState extends State<BalancePage> {
                         listCheckBalancePage[i] = false;
                       }
                     },
-                    icon:  Icon(
+                    icon: Icon(
                       Icons.arrow_back,
                       color: Colors.white,
                       size: 24.h,
@@ -81,7 +81,7 @@ class _BalancePageState extends State<BalancePage> {
             ),
           ),
           Padding(
-            padding:  EdgeInsets.only(
+            padding: EdgeInsets.only(
               top: 24.h,
               left: 16.w,
               right: 269.w,
