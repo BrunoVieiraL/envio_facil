@@ -22,12 +22,12 @@ class _BalancePageState extends State<BalancePage> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Container(
-            height: 151,
-            width: 360,
-            decoration: const BoxDecoration(
+            height: 151.h,
+            width: 360.w,
+            decoration:  BoxDecoration(
               gradient: LinearGradient(
                   begin: Alignment.topLeft,
-                  end: Alignment(3, 3),
+                  end: Alignment(3.w, 3.h),
                   colors: <Color>[
                     Color(0xFF353740),
                     Color(0xFF222222),
@@ -37,10 +37,10 @@ class _BalancePageState extends State<BalancePage> {
             child: Stack(
               children: [
                 Positioned(
-                  top: 40,
-                  bottom: 87,
-                  left: 16,
-                  right: 320,
+                  top: 40.h,
+                  bottom: 87.h,
+                  left: 16.w,
+                  right: 320.w,
                   child: IconButton(
                     onPressed: () {
                       Navigator.of(context).pop();
@@ -73,7 +73,7 @@ class _BalancePageState extends State<BalancePage> {
                   left: 16.w,
                   right: 16.w,
                   text: 'Qual o peso do volume?',
-                  fontSize: 20,
+                  fontSize: 20.sp,
                   textAlign: TextAlign.left,
                   fontFamily: titilliumWebRegular,
                 ),
