@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:jera_app/components/component_cancel_button.dart';
 import 'package:jera_app/widgets/custom_widget_bottom_green_button.dart';
 
@@ -21,13 +22,13 @@ class _BoxSizePageState extends State<BoxSizePage> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Container(
-            height: 151,
-            width: 360,
-            decoration: const BoxDecoration(
+            height: 151.h,
+            width: 360.w,
+            decoration: BoxDecoration(
               gradient: LinearGradient(
                   begin: Alignment.topLeft,
-                  end: Alignment(3, 3),
-                  colors: <Color>[
+                  end: Alignment(3.w, 3.h),
+                  colors: const <Color>[
                     Color(0xFF353740),
                     Color(0xFF222222),
                   ],
@@ -36,10 +37,10 @@ class _BoxSizePageState extends State<BoxSizePage> {
             child: Stack(
               children: [
                 Positioned(
-                  top: 40,
-                  bottom: 87,
-                  left: 16,
-                  right: 320,
+                  top: 40.h,
+                  bottom: 87.h,
+                  left: 16.w,
+                  right: 320.w,
                   child: IconButton(
                     onPressed: () {
                       Navigator.of(context).pop();
@@ -47,33 +48,33 @@ class _BoxSizePageState extends State<BoxSizePage> {
                         listCheckBoxSizePage[i] = false;
                       }
                     },
-                    icon: const Icon(
+                    icon: Icon(
                       Icons.arrow_back,
                       color: Colors.white,
-                      size: 24,
+                      size: 24.w,
                     ),
                   ),
                 ),
                 CustomWidgetPositionedText(
-                  top: 40,
-                  bottom: 87,
-                  left: 129,
-                  right: 129,
+                  top: 40.h,
+                  bottom: 87.h,
+                  left: 129.w,
+                  right: 129.w,
                   text: 'Ser um Muvver',
                   color: Colors.white.withOpacity(0.54),
                   textAlign: TextAlign.center,
-                  fontSize: 14.9,
+                  fontSize: 15.sp,
                   fontFamily: titilliumWebRegular,
                 ),
                 const ComponentCancelButton(),
                 CustomWidgetPositionedText(
-                  top: 80,
-                  bottom: 16,
-                  left: 16,
-                  right: 16,
+                  top: 80.h,
+                  bottom: 16.h,
+                  left: 16.w,
+                  right: 16.w,
                   text:
                       'O volume que você pode deslocar tem tamanho similar a que?',
-                  fontSize: 20,
+                  fontSize: 20.sp,
                   textAlign: TextAlign.left,
                   fontFamily: titilliumWebRegular,
                 ),
@@ -81,10 +82,10 @@ class _BoxSizePageState extends State<BoxSizePage> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(
-              top: 24,
-              left: 16,
-              right: 269,
+            padding: EdgeInsets.only(
+              top: 24.h,
+              left: 16.w,
+              right: 269.w,
             ),
             child: Align(
               alignment: Alignment.centerLeft,
@@ -92,7 +93,7 @@ class _BoxSizePageState extends State<BoxSizePage> {
                 'Tamanhos',
                 textAlign: TextAlign.left,
                 style: TextStyle(
-                    fontSize: 15,
+                    fontSize: 15.sp,
                     fontFamily: titilliumWebBold,
                     fontWeight: FontWeight.bold),
               ),
