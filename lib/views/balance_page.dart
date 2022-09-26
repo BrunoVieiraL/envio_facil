@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:jera_app/components/component_cancel_button.dart';
 import 'package:jera_app/widgets/custom_widget_bottom_green_button.dart';
 
@@ -47,30 +48,30 @@ class _BalancePageState extends State<BalancePage> {
                         listCheckBalancePage[i] = false;
                       }
                     },
-                    icon: const Icon(
+                    icon:  Icon(
                       Icons.arrow_back,
                       color: Colors.white,
-                      size: 24,
+                      size: 24.h,
                     ),
                   ),
                 ),
                 CustomWidgetPositionedText(
-                  top: 40,
-                  bottom: 87,
-                  left: 129,
-                  right: 129,
+                  top: 40.h,
+                  bottom: 87.h,
+                  left: 129.w,
+                  right: 129.w,
                   text: 'Ser um Muvver',
                   color: Colors.white.withOpacity(0.54),
                   textAlign: TextAlign.center,
-                  fontSize: 14.9,
+                  fontSize: 14.9.sp,
                   fontFamily: titilliumWebRegular,
                 ),
                 const ComponentCancelButton(),
                 CustomWidgetPositionedText(
-                  top: 80,
-                  bottom: 16,
-                  left: 16,
-                  right: 16,
+                  top: 80.h,
+                  bottom: 16.h,
+                  left: 16.w,
+                  right: 16.w,
                   text: 'Qual o peso do volume?',
                   fontSize: 20,
                   textAlign: TextAlign.left,
@@ -80,10 +81,10 @@ class _BalancePageState extends State<BalancePage> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(
-              top: 24,
-              left: 16,
-              right: 269,
+            padding:  EdgeInsets.only(
+              top: 24.h,
+              left: 16.w,
+              right: 269.w,
             ),
             child: Align(
               alignment: Alignment.centerLeft,
@@ -91,7 +92,7 @@ class _BalancePageState extends State<BalancePage> {
                 'Peso',
                 textAlign: TextAlign.left,
                 style: TextStyle(
-                    fontSize: 15,
+                    fontSize: 15.sp,
                     fontFamily: titilliumWebBold,
                     fontWeight: FontWeight.bold),
               ),
