@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class MiddlePointPage extends StatelessWidget {
   const MiddlePointPage({super.key});
@@ -17,26 +18,30 @@ class MiddlePointPage extends StatelessWidget {
       ),
       body: Column(
         children: [
-          const Padding(
+          Padding(
             padding: EdgeInsets.only(
-              right: 205,
-              bottom: 8,
-              top: 16,
+              right: 205.w,
+              bottom: 8.w,
+              top: 16.h,
             ),
-            child: Text('Ponto intermediário'),
+            child: const Text('Ponto intermediário'),
           ),
-          const Padding(
+          Padding(
             padding: EdgeInsets.only(
-              left: 16,
-              right: 16,
-              bottom: 24,
+              left: 16.w,
+              right: 16.w,
+              bottom: 24.h,
             ),
-            child: Text(
+            child: const Text(
                 'Insira os pontos intermediários na sequência exata em que você passará por eles'),
           ),
-          const Padding(
-            padding: EdgeInsets.only(left: 17, right: 16, bottom: 30),
-            child: TextField(
+          Padding(
+            padding: EdgeInsets.only(
+              left: 17.w,
+              right: 16.w,
+              bottom: 30.h,
+            ),
+            child: const TextField(
               decoration: InputDecoration(
                 prefixIcon: Icon(Icons.search, color: Color(0xFF353740)),
                 label: Text('Nome da Cidade'),
@@ -44,17 +49,20 @@ class MiddlePointPage extends StatelessWidget {
               ),
             ),
           ),
-          const Padding(
+          Padding(
             padding: EdgeInsets.only(
-              left: 16,
-              right: 16,
-              bottom: 24,
+              left: 16.w,
+              right: 16.w,
+              bottom: 24.h,
             ),
-            child: Text(
+            child: const Text(
                 'Usuários que viajam de campo Grande - MS para Dourados - MS também passam por:'),
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 16, right: 16),
+            padding: EdgeInsets.only(
+              left: 16.w,
+              right: 16.w,
+            ),
             child: Row(
               children: const [
                 Icon(Icons.location_on),
