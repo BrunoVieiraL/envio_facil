@@ -17,17 +17,20 @@ class HomePage extends StatelessWidget {
               Padding(
                 padding:
                     EdgeInsets.only(left: 15.97.w, top: 58.h, right: 216.03.w),
-                child: const Image(
-                    color: Color(0xFF222222),
-                    width: 80,
-                    height: 15,
-                    image: AssetImage('assets/home_page/logo.png')),
+                child: Image(
+                    color: const Color(0xFF222222),
+                    width: 80.w,
+                    height: 15.h,
+                    image: const AssetImage('assets/home_page/logo.png')),
               ),
               Padding(
-                padding: EdgeInsets.only(right: 16.w, top: 49.h),
+                padding: EdgeInsets.only(
+                  right: 16.w,
+                  top: 49.h,
+                ),
                 child: Icon(
                   Icons.person,
-                  size: 32.h,
+                  size: 32.w,
                 ),
               ),
             ],
@@ -76,42 +79,47 @@ class HomePage extends StatelessWidget {
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
-        selectedFontSize: 10.w,
-        unselectedFontSize: 10.w,
+        selectedFontSize: 10.sp,
+        unselectedFontSize: 10.sp,
         selectedItemColor: const Color(0xFFB8B8B8),
         unselectedItemColor: const Color(0xFFB8B8B8),
         showUnselectedLabels: true,
         backgroundColor: Colors.white,
-        items: const [
+        items: [
           BottomNavigationBarItem(
               backgroundColor: Colors.white,
               icon: Icon(
                 Icons.home,
-                color: Color(0xFFB8B8B8),
+                size: 22.h,
+                color: const Color(0xFFB8B8B8),
               ),
               label: 'Início'),
           BottomNavigationBarItem(
               icon: Icon(
                 Icons.notifications,
-                color: Color(0xFFB8B8B8),
+                size: 22.h,
+                color: const Color(0xFFB8B8B8),
               ),
               label: 'Notificações'),
           BottomNavigationBarItem(
               icon: Icon(
                 Icons.chat,
-                color: Color(0xFFB8B8B8),
+                size: 22.h,
+                color: const Color(0xFFB8B8B8),
               ),
               label: 'Chat'),
           BottomNavigationBarItem(
               icon: Icon(
                 Icons.list,
-                color: Color(0xFFB8B8B8),
+                size: 22.h,
+                color: const Color(0xFFB8B8B8),
               ),
               label: 'Pedidos'),
           BottomNavigationBarItem(
               icon: Icon(
                 Icons.fire_truck,
-                color: Color(0xFFB8B8B8),
+                size: 22.h,
+                color: const Color(0xFFB8B8B8),
               ),
               label: 'Entregas'),
         ],
