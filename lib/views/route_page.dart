@@ -252,6 +252,7 @@ class _RoutePageState extends State<RoutePage> {
                           fontWeight: FontWeight.w400),
                     ),
                   ),
+                  const Expanded(child: SizedBox()),
                   CustomWidgetBottomGreenButton(
                     buttonText: 'Avançar',
                     top: 33.h,

@@ -130,9 +130,7 @@ class _DeliveryValuePageState extends State<DeliveryValuePage> {
                   color: const Color(0x2222228A)),
             ),
           ),
-          SizedBox(
-            height: 226.h,
-          ),
+          const Expanded(child: SizedBox()),
           CustomWidgetBottomGreenButton(
             onPressed: () {
               Navigator.of(context).pushReplacementNamed('/tripCreatedPage');

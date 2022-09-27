@@ -65,7 +65,7 @@ class TripCreatedPage extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(height: 95.h),
+          const Expanded(child: SizedBox()),
           CustomWidgetBottomGreenButton(
               onPressed: () {
                 Navigator.of(context).pushReplacementNamed('/homePage');
